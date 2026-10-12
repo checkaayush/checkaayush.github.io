@@ -2,88 +2,111 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aayush Sarva</title>
 
-  <!-- Viewport mobile tag for sensible mobile support -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-
   <!-- Meta tags for browsers and search engines -->
-  <meta charset="UTF-8">
-	<meta name="title" content="Aayush Sarva | Home Page">
-	<meta name="description" content="Aayush Sarva: engineering manager, previously leading platform engineering at Atlan." />
-  <meta name="keywords" content="Engineering Manager, Platform Engineering, Software Engineer, Observability, Golang, Python">
+  <meta name="title" content="Aayush Sarva | Home Page">
+  <meta name="description" content="Aayush Sarva: engineering manager for backend, platform and developer tooling teams, previously leading platform engineering at Atlan.">
+  <meta name="keywords" content="Engineering Manager, Platform Engineering, Developer Tooling, Software Engineer, Observability, Golang, Python">
   <meta name="author" content="Aayush Sarva">
 
   <!--Favicon-->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <!--Styles-->
-  <link rel="stylesheet" type="text/css" href="stylesheets/simplegrid.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/googlefonts.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="grid grid-pad">
-      <div class="col-1-1">
-        <div class="text-center">
-          <img src="me.svg" class="mugshot" alt="Aayush Sarva" />
-        </div>
+  <div class="wrap">
+    <nav class="nav" aria-label="Site">
+      <a class="mark" href="/">Aayush Sarva</a>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <li><a href="Resume_AayushSarva.pdf">Résumé</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <p class="status">Open to engineering manager roles</p>
+        <h1 class="name">Aayush Sarva</h1>
+        <p class="lede">I lead backend, platform and developer tooling teams.</p>
+        <p class="intro">For the last three years I ran the platform team at <a href="https://atlan.com/">Atlan</a>, which provisions, upgrades and operates 750+ customer tenants across clouds. Before that I built and led messaging teams at <a href="https://plivo.com/">Plivo</a>. I like the unglamorous work that makes other engineers faster: on-call that doesn't burn people out, onboarding that takes days instead of weeks, and releases nobody has to babysit.</p>
       </div>
+      <figure class="portrait">
+        <img src="images/portrait.jpg" width="469" height="520" alt="Aayush Sarva">
+      </figure>
+    </header>
+
+    <div class="figures" aria-label="Results at Atlan">
+      <div><b>750+</b><span>tenants run on the platform</span></div>
+      <div><b>&lt;2 h</b><span>to onboard a tenant <s>was 24 h+</s></span></div>
+      <div><b>&lt;15 min</b><span>to mitigate incidents <s>was 3 h+</s></span></div>
+      <div><b>&lt;3 h</b><span>to restore a tenant <s>was 10 h+</s></span></div>
     </div>
-    <div class="grid card marg-tb">
-      <div class="col-1-1">
 
-        <h1 class="text-center">Aayush Sarva</h1>
+    <section id="work">
+      <div class="h2"><h2>Experience</h2><a href="Resume_AayushSarva.pdf">Full résumé (PDF)</a></div>
+      <ol class="roles">
+        <li class="role">
+          <span class="when">Oct 2023 – Jun 2026</span>
+          <div>
+            <h3>Engineering Manager, Platform <small>· Atlan</small></h3>
+            <p>Owned the internal platform for multi-cloud tenant orchestration and release management, used by 250+ people inside Atlan. Raised weekly onboarding success from 70% to nearly 100%, set up incident management and on-call from scratch, and moved it to AI-assisted response. Ran the terabyte-scale observability stack at 99.9% availability for ~15% less.</p>
+          </div>
+        </li>
+        <li class="role">
+          <span class="when">Nov 2019 – Sep 2023</span>
+          <div>
+            <h3>Engineering Manager, Messaging <small>· Plivo</small></h3>
+            <p>Led the messaging team from January 2023, after three years as an engineer on it. Decoupled observability from vendors with OpenTelemetry, and cut new-hire ramp-up from 4+ weeks to under 2.</p>
+            <p class="sub"><b>Earlier at Plivo:</b> Software Engineer II and III. Up to 10× better p99 latency, ~6% lower cloud spend, and dynamic SMS routing that lifted margins by 13%.</p>
+          </div>
+        </li>
+        <li class="role">
+          <span class="when">Jun 2016 – Oct 2019</span>
+          <div>
+            <h3>Senior Software Engineer, Collect <small>· Atlan</small></h3>
+            <p>Owned the data export service and cut export time from 5+ hours to under one. Built sub-second search and analytics on Elasticsearch.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-        <div class="me">
-          <p>Minimalism, Technology, Design & Philosophy</p>
-        </div>
+    <section id="talks">
+      <div class="h2"><h2>Talks</h2></div>
+      <ul class="talks">
+        <li><span class="when">Sep 2023</span><div><strong>AsliConf</strong><span class="topic">Performance and cost efficiency in distributed systems</span></div></li>
+        <li><span class="when">Sep 2023</span><div><strong>SysConf by SysDsgn</strong><span class="topic">Performance and cost efficiency in distributed systems</span></div></li>
+        <li><span class="when">Jun 2023</span><div><strong>Boston Golang Meetup</strong><span class="topic">Performance and cost efficiency in distributed systems</span></div></li>
+      </ul>
+    </section>
 
-        <div class="social">
-          <a href="mailto:checkaayush@gmail.com" title="checkaayush@gmail.com"><i class="fa fa-envelope"
-              style="text-align:center;padding-right:30px;color:black;"></i></a>
-
-          <a href="https://github.com/checkaayush" title="GitHub"><i class="fa fa-github"
-              style="text-align:center;padding-right:30px;color:black;"></i></a>
-
-          <a href="https://www.linkedin.com/in/aayushsarva" title="LinkedIn"><i class="fa fa-linkedin"
-              style="text-align:center;color:black;"></i></a>
-        </div>
-
+    <section class="cta" id="contact">
+      <h2>Hiring an engineering manager for a platform or developer tooling team?</h2>
+      <p>I'm talking to teams now. Email is the fastest way to reach me.</p>
+      <div class="socials">
+        <a class="social" href="mailto:checkaayush@gmail.com" aria-label="Email checkaayush@gmail.com" title="checkaayush@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <a class="social" href="https://www.linkedin.com/in/aayushsarva" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a class="social" href="https://github.com/checkaayush" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.03 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
       </div>
-    </div>
-    <div class="grid">
-      <div class="col-1-1">
-        <div class="bio no-pad">
-          <p>
+    </section>
 
-            Hello! I'm an engineering manager, currently between roles and exploring what's next.
-
-          </p>
-
-          <p>
-
-            Most recently, I was an Engineering Manager at <a href="https://atlan.com/">Atlan</a>, where I led
-            the platform team behind multi-cloud tenant orchestration, release management, observability
-            and incident management. Before that, I was at <a href="https://plivo.com/">Plivo</a>, building
-            and leading messaging teams.
-
-          </p>
-
-          <p>
-
-            Here's my <a href="Resume_AayushSarva.pdf">résumé</a>.
-
-          </p>
-        </div>
-      </div>
-    </div>
+    <footer class="foot">© 2026 Aayush Sarva</footer>
   </div>
-
-
 </body>
 
 </html>

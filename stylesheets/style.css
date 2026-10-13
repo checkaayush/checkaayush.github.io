@@ -175,6 +175,18 @@ section { margin-bottom: 96px; }
 .role .sub { margin-top: 12px; font-size: 0.95rem; }
 .role .sub b { color: var(--ink); font-weight: 500; }
 .talks strong { font-weight: 500; }
+.talk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.talk strong { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color .15s ease; }
+.talk svg { width: 12px; height: 12px; fill: none; stroke: var(--ink-2); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex: none; transition: transform .15s ease, stroke .15s ease; }
+.talk:hover strong { text-decoration-color: var(--accent); }
+.talk:hover svg { stroke: var(--accent); transform: translate(2px, -2px); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .talks .topic { display: block; color: var(--ink-2); font-size: 0.95rem; }
 
 .cta {
@@ -214,7 +226,7 @@ section { margin-bottom: 96px; }
 
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-@media (prefers-reduced-motion: reduce) { .social { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .social, .talk strong, .talk svg { transition: none; } }
 
 @media (max-width: 900px) {
   .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }

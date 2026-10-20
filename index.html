@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono&display=swap">
-  <link rel="stylesheet" href="stylesheets/style.css?v=5">
+  <link rel="stylesheet" href="stylesheets/style.css?v=6">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
         <p class="status">Open to engineering manager roles</p>
         <h1 class="name">Aayush Sarva</h1>
         <p class="lede">I lead backend, platform and developer tooling teams.</p>
-        <p class="intro">For the last three years I ran the platform team at <a href="https://atlan.com/">Atlan</a>, which provisions, upgrades and operates 750+ customer tenants across clouds. Before that I built and led messaging teams at <a href="https://plivo.com/">Plivo</a>. I like the unglamorous work that makes other engineers faster: on-call that doesn't burn people out, onboarding that takes days instead of weeks, and releases nobody has to babysit.</p>
+        <p class="intro">For nearly three years I ran the platform team at <a href="https://atlan.com/">Atlan</a>, which provisions, upgrades and operates 750+ customer tenants across clouds. Before that I built and led messaging teams at <a href="https://plivo.com/">Plivo</a>. I like the unglamorous work that makes other engineers faster: on-call that doesn't burn people out, onboarding that takes days instead of weeks, and releases nobody has to babysit.</p>
       </div>
       <figure class="portrait">
         <img src="images/portrait.jpg" width="469" height="520" alt="Aayush Sarva" fetchpriority="high" decoding="async">
@@ -56,27 +56,47 @@
 
     <section id="work">
       <div class="h2"><h2>Experience</h2><a href="Resume_AayushSarva.pdf">Full résumé (PDF)</a></div>
+      <p class="arc">Ten years in backend, from owning one service to running the platform 750+ customer tenants depend on. Promoted from engineer to engineering manager at Plivo, then returned to Atlan to lead Platform Engineering.</p>
       <ol class="roles">
         <li class="role">
           <span class="when">Oct 2023 – Jun 2026</span>
           <div>
             <h3>Engineering Manager, Platform <small>· Atlan</small></h3>
-            <p>Owned the internal platform for multi-cloud tenant orchestration and release management, used by 250+ people inside Atlan. Raised weekly onboarding success from 70% to nearly 100%, set up incident management and on-call from scratch, and moved it to AI-assisted response. Ran the terabyte-scale observability stack at 99.9% availability for ~15% less.</p>
+            <p>Led a platform team of up to 10 engineers. We owned three things: multi-cloud tenant orchestration and release management for 750+ tenants and 250+ internal users, a terabyte-scale observability stack, and incident response for the platform. I owned hiring, performance, architecture decisions and the roadmap.</p>
+            <ul class="wins">
+              <li><b>Made tenant onboarding dependable.</b> Weekly success rate from 70% to ~100%, and time to onboard from 24+ hours to under 2.</li>
+              <li><b>Built incident management from scratch.</b> Set up on-call and its tooling, then moved the team to AI-native incident response. Mitigation time fell from 3+ hours to under 15 minutes.</li>
+              <li><b>Raised the reliability bar.</b> Led the push to 99.99% platform availability and made tenant backup and restore more resilient, cutting recovery from 10+ hours to under 3.</li>
+              <li><b>Ran observability for less.</b> Took the stack to 99.9% availability while cutting its cost by ~15%.</li>
+            </ul>
           </div>
         </li>
         <li class="role">
           <span class="when">Nov 2019 – Sep 2023</span>
           <div>
-            <h3>Engineering Manager, Messaging <small>· Plivo</small></h3>
-            <p>Led the messaging team from January 2023, after three years as an engineer on it. Decoupled observability from vendors with OpenTelemetry, and cut new-hire ramp-up from 4+ weeks to under 2.</p>
-            <p class="sub"><b>Earlier at Plivo:</b> Software Engineer II and III. Up to 10× better p99 latency, ~6% lower cloud spend, and dynamic SMS routing that lifted margins by 13%.</p>
+            <h3>Engineer to Engineering Manager, Messaging <small>· Plivo</small></h3>
+            <p>Joined the SMS platform as an engineer and was promoted twice in three years, to lead the team I'd been building with.</p>
+            <ol class="ladder">
+              <li>
+                <span class="rung">Engineering Manager <i>2023</i></span>
+                <p>Decoupled observability from vendors with OpenTelemetry, eliminating a multi-week migration effort across teams. Rebuilt technical onboarding, taking new-hire ramp-up from 4+ weeks to under 2. Recognised internally for unified onboarding and a better on-call experience.</p>
+              </li>
+              <li>
+                <span class="rung">Software Engineer III <i>2021–22</i></span>
+                <p>Improved p99 latency by up to 10× through query batching, better indexes, caching and finer-grained observability. Cut cloud spend by ~6%, thousands of dollars a month, with tuned autoscaling, batched SQS calls and Graviton. Turned the work into <a href="#talks">three conference talks</a>.</p>
+              </li>
+              <li>
+                <span class="rung">Software Engineer II <i>2019–21</i></span>
+                <p>Designed and shipped dynamic SMS routing: delivery up 3%, margins up 13%, and 20+ hours a week of manual carrier-quality ranking automated away.</p>
+              </li>
+            </ol>
           </div>
         </li>
         <li class="role">
           <span class="when">Jun 2016 – Oct 2019</span>
           <div>
             <h3>Senior Software Engineer, Collect <small>· Atlan</small></h3>
-            <p>Owned the data export service and cut export time from 5+ hours to under one. Built sub-second search and analytics on Elasticsearch.</p>
+            <p>Owned the customer-facing data export service end to end. Cut export time from 5+ hours to under 1, added filters, emailed archives and multiple file formats, and shipped Google Sheets and Zapier integrations. Built sub-second search and analytics on Elasticsearch.</p>
           </div>
         </li>
       </ol>

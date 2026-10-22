@@ -8,14 +8,13 @@
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
+\usepackage[letterpaper, hmargin=0.5in, vmargin=0.4in]{geometry}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \ifdefined\pdfgentounicode\input{glyphtounicode}\fi
@@ -33,97 +32,92 @@
 % \usepackage{charter}
 
 
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.6in}
-\addtolength{\textheight}{1.3in}
-
+\pagestyle{empty}
 \urlstyle{same}
-
-\raggedbottom
 \raggedright
-\setlength{\tabcolsep}{0in}
-
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \ifdefined\pdfgentounicode\pdfgentounicode=1\fi
 
+%----------SPACING----------
+% All vertical spacing comes from these lengths, applied by the list and
+% heading settings below; the content itself uses no \vspace. Adjacent
+% gaps don't add up: the larger one wins.
+\newlength{\linegap}    \setlength{\linegap}{2pt}    % between bullets, and between lines in a list
+\newlength{\entrygap}   \setlength{\entrygap}{5pt}   % after each role's bullets
+\newlength{\sectiongap} \setlength{\sectiongap}{10pt} % before each section heading
+\newlength{\rulegap}    \setlength{\rulegap}{0pt}    % extra space between a section's rule and its first line
+
+% Keep every baseline exactly \baselineskip apart, so underlined links or
+% tall symbols can't push the next line down
+\setlength{\lineskiplimit}{-\maxdimen}
+
+% Sections: small caps title over a full-width rule
+\titleformat{\section}{\scshape\raggedright\large}{}{0em}{}[\titlerule\prevdepth=0pt]
+\titlespacing*{\section}{0pt}{\sectiongap}{\rulegap}
+
+% Lists: no spacing beyond the lengths above
+\newcommand{\closeentry}{\par\addvspace{\entrygap}}
+\setlist{nosep}
+\setlist[itemize,1]{leftmargin=0.15in, label={}, itemsep=\linegap}
+\setlist[itemize,2]{topsep=\linegap, itemsep=\linegap, before=\small, after=\closeentry}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% Centres the page vertically, so the space above the name matches the
+% space below the last line whatever the length of the content
+\setlength{\topskip}{0pt}
+\newenvironment{resume}{\vspace*{\fill}\nointerlineskip}{\vspace*{\fill}}
+
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
+\newcommand{\resumeHeading}[3]{
+  {\centering
+    {\Huge\scshape\textbf{#1}}\par
+    \vspace{\linegap}
+    {\small #2\\[\linegap] #3\par}
   }
 }
 
+% Bold name and right-aligned place, then an italic line and right-aligned dates
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+  \item \textbf{#1}\hfill #2\par
+  {\small\textit{#3}\hfill\textit{#4}\par}
 }
 
-\newcommand{\resumeCompany}[3]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \\
-    \end{tabular*}\vspace{-7pt}
-}
+% A company: name, location and a one-line description
+\newcommand{\resumeCompany}[3]{\resumeSubheading{#1}{#2}{#3}{}}
 
+% A role at the company above: title and dates
 \newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+  \item {\small\textit{#1}\hfill\textit{#2}\par}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
+\newcommand{\resumeItem}[1]{\item #1}
 
-\newcommand{\resumeNote}[1]{\item[]\vspace{-4pt}{\small\textit{#1}}\vspace{-7pt}}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+% Plain lines, such as Skills
+\newcommand{\resumeLineListStart}{\begin{itemize}[before=\small]}
+\newcommand{\resumeLineListEnd}{\end{itemize}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
+\begin{resume}
 
 %----------HEADING----------
-\begin{center}
-    \textbf{\Huge \scshape Aayush Sarva} \\ \vspace{3pt}
-    {\small Engineering Manager $\cdot$ Platform \& Backend Engineering $\cdot$ 10+ years $\cdot$ Leading globally distributed teams} \\ \vspace{3pt}
-    \small \href{https://aayushsarva.com}{\underline{aayushsarva.com}} $|$
-    \href{mailto:checkaayush@gmail.com}{\underline{checkaayush@gmail.com}} $|$
-    \href{https://www.linkedin.com/in/aayushsarva}{\underline{linkedin.com/in/aayushsarva}} $|$
-    \href{https://github.com/checkaayush}{\underline{github.com/checkaayush}}
-\end{center}
+\resumeHeading{Aayush Sarva}
+  {Engineering Manager $\cdot$ Platform \& Backend Engineering $\cdot$ 10+ years $\cdot$ Leading globally distributed teams}
+  {\href{https://aayushsarva.com}{\underline{aayushsarva.com}} $|$
+   \href{mailto:checkaayush@gmail.com}{\underline{checkaayush@gmail.com}} $|$
+   \href{https://www.linkedin.com/in/aayushsarva}{\underline{linkedin.com/in/aayushsarva}} $|$
+   \href{https://github.com/checkaayush}{\underline{github.com/checkaayush}}}
 
 
 %-----------EXPERIENCE-----------
@@ -177,28 +171,24 @@
 
 %-----------SKILLS-----------
 \section{Skills}
- \begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt]
-    \small{\item{
-     \textbf{Languages}{: Python, Golang, JavaScript} \\[2pt]
-     \textbf{Platform \& Infra}{: Kubernetes, Docker, Terraform} \\[2pt]
-     \textbf{Observability \& Reliability}{: OpenTelemetry, Prometheus, Grafana} \\[2pt]
-     \textbf{Data Stores}{: PostgreSQL, ClickHouse, Redis} \\[2pt]
-     \textbf{AI \& Tooling}{: AI agents, MCP, Claude Code, AI-native SDLC}
-    }}
- \end{itemize}
+ \resumeLineListStart
+    \item \textbf{Languages}{: Python, Golang, JavaScript}
+    \item \textbf{Platform \& Infra}{: Kubernetes, Docker, Terraform}
+    \item \textbf{Observability \& Reliability}{: OpenTelemetry, Prometheus, Grafana}
+    \item \textbf{Data Stores}{: PostgreSQL, ClickHouse, Redis}
+    \item \textbf{AI \& Tooling}{: AI agents, MCP, Claude Code, AI-native SDLC}
+  \resumeLineListEnd
 
 
 %-----------ACTIVITIES-----------
 \section{Activities}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Architrace}{: Building an AI-native digital assistant for architects (\href{https://architrace.lovable.app/}{\underline{architrace.lovable.app}})} \\
-     \textbf{Speaker}{: Spoke about performance optimizations \& cost efficiency in distributed systems at:
+ \resumeLineListStart
+    \item \textbf{Architrace}{: Building an AI-native digital assistant for architects (\href{https://architrace.lovable.app/}{\underline{architrace.lovable.app}})}
+    \item \textbf{Speaker}{: Spoke about performance optimizations \& cost efficiency in distributed systems at:
        \href{https://www.linkedin.com/posts/aayushsarva_an-optimisation-saga-with-go-share-7101188464095731712-5HT4/}{\underline{Boston Golang Meetup (Jun '23)}},
        \href{https://www.linkedin.com/posts/sysconf-sysconfbysysdsgn-sysconf23-share-7105856226323804160-Ik3W/}{\underline{SysConf by SysDsgn (Sep '23)}},
        \href{https://www.linkedin.com/posts/arpitbhayani_asliengineering-meetup-share-7103371012284575744-u82g/}{\underline{AsliConf (Sep '23)}}}
-    }}
- \end{itemize}
+  \resumeLineListEnd
 
 
 %-----------EDUCATION-----------
@@ -211,4 +201,5 @@
 
 
 %-------------------------------------------
+\end{resume}
 \end{document}

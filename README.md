@@ -1,6 +1,6 @@
 # checkaayush.github.io
 
-My personal website, [checkaayush.com](https://checkaayush.com), and the LaTeX source for my resume.
+My personal website, [aayushsarva.com](https://aayushsarva.com), and the LaTeX source for my resume.
 
 ## Layout
 

@@ -45,6 +45,7 @@
 % All vertical spacing comes from these lengths, applied by the list and
 % heading settings below; the content itself uses no \vspace. Adjacent
 % gaps don't add up: the larger one wins.
+\newlength{\namegap}    \setlength{\namegap}{4.5pt}  % below the name
 \newlength{\linegap}    \setlength{\linegap}{2pt}    % between bullets, and between lines in a list
 \newlength{\entrygap}   \setlength{\entrygap}{5pt}   % after each role's bullets
 \newlength{\sectiongap} \setlength{\sectiongap}{10pt} % before each section heading
@@ -75,7 +76,7 @@
 \newcommand{\resumeHeading}[3]{
   {\centering
     {\Huge\scshape\textbf{#1}}\par
-    \vspace{\linegap}
+    \vspace{\namegap}
     {\small #2\\[\linegap] #3\par}
   }
 }

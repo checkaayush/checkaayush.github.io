@@ -1,0 +1,214 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\ifdefined\pdfgentounicode\input{glyphtounicode}\fi
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\ifdefined\pdfgentounicode\pdfgentounicode=1\fi
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeCompany}[3]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeNote}[1]{\item[]\vspace{-4pt}{\small\textit{#1}}\vspace{-7pt}}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Aayush Sarva} \\ \vspace{3pt}
+    {\small Engineering Manager $\cdot$ Platform \& Backend Engineering $\cdot$ 10+ years $\cdot$ Leading globally distributed teams} \\ \vspace{3pt}
+    \small \href{https://aayushsarva.com}{\underline{aayushsarva.com}} $|$
+    \href{mailto:checkaayush@gmail.com}{\underline{checkaayush@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/aayushsarva}{\underline{linkedin.com/in/aayushsarva}} $|$
+    \href{https://github.com/checkaayush}{\underline{github.com/checkaayush}}
+\end{center}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeCompany
+      {\href{https://atlan.com/}{Atlan}}{Remote}
+      {Atlan provides the context layer for enterprise AI.}
+    \resumeSubSubheading
+      {Engineering Manager, Platform}{Oct '23 -- Jun '26}
+      \resumeItemListStart
+        \resumeItem{Led a globally distributed platform engineering group of up to 10 engineers}
+        \resumeItem{Owned the internal multi-cloud tenant orchestration \& release management platform (750+ tenants, 200+ users)}
+        \resumeItem{Cut tenant onboarding from 24+ hours to $<$2 hours (success rate 70\% $\rightarrow$ \textasciitilde100\%), bringing prospect time-to-value under a week vs. competitors' multiple weeks}
+        \resumeItem{Introduced incident management and on-call practices, then led the move to AI-native incident management, cutting incident mitigation time from 3+ hours to <15 minutes}
+        \resumeItem{Helped unlock our first \$1M+/year enterprise deal by cutting tenant backup-restore time from 10+ hours to <3 hours and contributing to 99.99\% platform availability}
+        \resumeItem{Owned the terabyte-scale centralized observability stack, increasing reliability and reducing cost by \textasciitilde15\%}
+        
+      \resumeItemListEnd
+
+    \resumeCompany
+      {\href{https://plivo.com/}{Plivo}}{Remote}
+      {Plivo provides AI agents for multi-channel business communications.}
+    \resumeSubSubheading
+      {Engineering Manager, Messaging}{Jan '23 -- Sep '23}
+      \resumeItemListStart
+        \resumeItem{Eliminated multi-week cross-team migrations by decoupling observability from vendors via OpenTelemetry}
+        \resumeItem{Cut new-engineer ramp-up time from 4+ weeks to <2 weeks by revamping technical onboarding}
+      \resumeItemListEnd
+
+    \resumeSubSubheading
+      {Senior Software Engineer, Messaging}{Nov '19 -- Dec '22}
+      \resumeItemListStart
+        \resumeItem{Improved p99 latencies by up to 10x using query batching, better DB indexes, caching \& granular observability}
+        \resumeItem{Reduced cloud costs \textasciitilde6\% (thousands of dollars/month) via tuned autoscaling, batched SQS calls \& Graviton}
+        \resumeItem{Built dynamic SMS routing, raising delivery 3\% \& margins 13\%; automated 20+ hours/week of carrier ranking}
+      \resumeItemListEnd
+
+    \resumeCompany
+      {\href{https://socialcops.com/}{SocialCops}}{New Delhi}
+      {SocialCops helps organizations embrace data intelligence.}
+    \resumeSubSubheading
+      {Senior Software Engineer, Data Platform}{Jun '16 -- Oct '19}
+      \resumeItemListStart
+        \resumeItem{Owned the data export capability: reduced export time for large datasets from 5+ hours to <1 hour, added configurability (filters \& file formats) and integrations with email, Google Sheets \& Zapier}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt]
+    \small{\item{
+     \textbf{Languages}{: Python, Golang, JavaScript} \\[2pt]
+     \textbf{Platform \& Infra}{: Kubernetes, Docker, Terraform} \\[2pt]
+     \textbf{Observability \& Reliability}{: OpenTelemetry, Prometheus, Grafana} \\[2pt]
+     \textbf{Data Stores}{: PostgreSQL, ClickHouse, Redis} \\[2pt]
+     \textbf{AI \& Tooling}{: AI agents, MCP, Claude Code, AI-native SDLC}
+    }}
+ \end{itemize}
+
+
+%-----------ACTIVITIES-----------
+\section{Activities}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Architrace}{: Building an AI-native digital assistant for architects (\href{https://architrace.lovable.app/}{\underline{architrace.lovable.app}})} \\
+     \textbf{Speaker}{: Spoke about performance optimizations \& cost efficiency in distributed systems at:
+       \href{https://www.linkedin.com/posts/aayushsarva_an-optimisation-saga-with-go-share-7101188464095731712-5HT4/}{\underline{Boston Golang Meetup (Jun '23)}},
+       \href{https://www.linkedin.com/posts/sysconf-sysconfbysysdsgn-sysconf23-share-7105856226323804160-Ik3W/}{\underline{SysConf by SysDsgn (Sep '23)}},
+       \href{https://www.linkedin.com/posts/arpitbhayani_asliengineering-meetup-share-7103371012284575744-u82g/}{\underline{AsliConf (Sep '23)}}}
+    }}
+ \end{itemize}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {The LNM Institute of Information Technology}{CPI: 8.52 / 10.0}
+      {Bachelor of Technology, Communication \& Computer Engineering}{Jul '12 -- May '16}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}

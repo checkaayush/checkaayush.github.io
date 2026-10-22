@@ -1,0 +1,8 @@
+# GitHub Pages (Jekyll) settings: keep source and tooling off the live site.
+exclude:
+  - resume/Resume_AayushSarva.tex
+  - resume/archives/
+  - Makefile
+  - README.md
+  - AGENTS.md
+  - CLAUDE.md

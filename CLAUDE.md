@@ -14,6 +14,7 @@ Two modules share this repo: the **site** (`index.html`, `assets/`) and the **re
 ## Resume
 
 - Edit only `resume/Resume_AayushSarva.tex`. The PDF is a build output: the pre-commit hook rebuilds and stages it, so never hand-edit or separately regenerate it into a commit. If `core.hooksPath` isn't `.githooks`, run `make setup`.
+- All vertical spacing lives in the lengths under `SPACING` in the `.tex` preamble, applied by the list and heading settings; the page centres itself vertically. Change spacing there, never with `\vspace` or `\\[..]` in the content, and use the existing `\resume...` commands for new entries.
 - The resume is exactly one page. Run `make check` after every edit; when a change overflows, tighten wording rather than shrinking margins or font size.
 - Write bullets as outcomes and ownership, not duties, and keep figures defensible.
 - `resume/archives/` is frozen. To retire the current resume, copy it into a new `archives/<layout>-<YYYY-MM>/` folder and add an entry to `archives/README.md`; never edit an existing snapshot.

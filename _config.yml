@@ -1,0 +1,6 @@
+# GitHub Pages (Jekyll) settings: keep source and tooling off the live site.
+exclude:
+  - resume/
+  - build/
+  - Makefile
+  - README.md

@@ -3,8 +3,8 @@
 # committed PDF always matches the committed .tex and is a valid one-page build.
 set -e
 
-TEX=resume/AayushSarva.tex
-PDF=resume/AayushSarva.pdf
+TEX=resume/Resume_AayushSarva.tex
+PDF=resume/Resume_AayushSarva.pdf
 
 git diff --cached --quiet -- "$TEX" && exit 0
 

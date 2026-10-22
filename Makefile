@@ -1,9 +1,9 @@
-TEX := resume/AayushSarva.tex
-PDF := resume/AayushSarva.pdf
+TEX := resume/Resume_AayushSarva.tex
+PDF := resume/Resume_AayushSarva.pdf
 
 .PHONY: pdf check watch open serve setup
 
-pdf: ## Build resume/AayushSarva.pdf
+pdf: ## Build resume/Resume_AayushSarva.pdf
 	tectonic -X compile $(TEX) --outdir resume
 
 check: pdf ## Build and fail unless the resume is exactly one page

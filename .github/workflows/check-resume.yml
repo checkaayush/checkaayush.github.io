@@ -2,9 +2,9 @@ name: Check resume
 
 on:
   push:
-    paths: ['resume/AayushSarva.tex', 'resume/AayushSarva.pdf']
+    paths: ['resume/Resume_AayushSarva.tex', 'resume/Resume_AayushSarva.pdf']
   pull_request:
-    paths: ['resume/AayushSarva.tex', 'resume/AayushSarva.pdf']
+    paths: ['resume/Resume_AayushSarva.tex', 'resume/Resume_AayushSarva.pdf']
 
 jobs:
   check:
@@ -18,7 +18,7 @@ jobs:
 
       - name: Committed PDF is one page
         run: |
-          pages=$(pdfinfo resume/AayushSarva.pdf | awk '/^Pages:/ {print $2}')
+          pages=$(pdfinfo resume/Resume_AayushSarva.pdf | awk '/^Pages:/ {print $2}')
           echo "Committed PDF: $pages page(s)"
           test "$pages" = 1
 
@@ -34,7 +34,7 @@ jobs:
             exit 0
           fi
           changed=$(git diff --name-only "$BASE" HEAD)
-          if echo "$changed" | grep -qx resume/AayushSarva.tex && ! echo "$changed" | grep -qx resume/AayushSarva.pdf; then
-            echo "::error::resume/AayushSarva.tex changed but resume/AayushSarva.pdf did not. Run 'make setup' to enable the pre-commit hook, then rebuild."
+          if echo "$changed" | grep -qx resume/Resume_AayushSarva.tex && ! echo "$changed" | grep -qx resume/Resume_AayushSarva.pdf; then
+            echo "::error::resume/Resume_AayushSarva.tex changed but resume/Resume_AayushSarva.pdf did not. Run 'make setup' to enable the pre-commit hook, then rebuild."
             exit 1
           fi

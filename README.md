@@ -6,28 +6,34 @@ My personal website, [checkaayush.com](https://checkaayush.com), and the LaTeX s
 
 | Path | Purpose |
 | --- | --- |
-| `index.html`, `images/`, `stylesheets/`, `me.svg`, `favicon.ico` | The website, served as-is by GitHub Pages |
-| `Resume_AayushSarva.pdf` | Published resume, **built by CI**; don't edit or commit it by hand |
+| `index.html` | The website (single page), served by GitHub Pages from `master` |
+| `assets/` | Stylesheet, portrait and favicon |
 | `resume/AayushSarva.tex` | Resume source (Jake's Resume template, single file) |
+| `resume/AayushSarva.pdf` | Built resume, committed; the site links here |
 | `resume/archives/` | Frozen snapshots of previous resumes (see `resume/archives/README.md`); never edit or overwrite |
-| `.github/workflows/build-resume.yml` | Builds the PDF on push and commits it to the root |
-| `_config.yml` | Keeps `resume/`, `Makefile` and this README off the live site |
+| `.githooks/pre-commit` | Rebuilds and stages the PDF when the `.tex` is committed; blocks broken or multi-page builds |
+| `.github/workflows/check-resume.yml` | CI backstop: the PDF is one page, the source builds, and both changed together |
+| `_config.yml` | Keeps the `.tex`, archives, `Makefile` and this README off the live site |
+
+## Setup
+
+Requires Homebrew. Installs [Tectonic](https://tectonic-typesetting.github.io/), [watchexec](https://github.com/watchexec/watchexec) and poppler (`pdfinfo`), and enables the pre-commit hook:
+
+```sh
+make setup
+```
 
 ## Updating the resume
 
-1. Edit `resume/AayushSarva.tex`. Leave `make watch` running to preview at `build/AayushSarva.pdf`.
-2. Commit and push to `master`.
-3. CI rebuilds the PDF, commits `Resume_AayushSarva.pdf` and redeploys the site. Run `git pull` afterwards to pick up that commit.
-
-The site links only to `Resume_AayushSarva.pdf`, and only CI writes it, so the website always serves the resume built from the latest `.tex`.
+1. Edit `resume/AayushSarva.tex`. Leave `make watch` running to rebuild `resume/AayushSarva.pdf` on save.
+2. `git add resume/AayushSarva.tex && git commit`. The hook rebuilds the PDF, checks it is one page, and adds it to the commit. If the build fails, the commit is aborted.
+3. `git push`. Pages redeploys and the site serves the new PDF.
 
 ## Commands
 
-Requires [Tectonic](https://tectonic-typesetting.github.io/) and [watchexec](https://github.com/watchexec/watchexec).
-
 ```sh
-make setup   # one-time: brew install tectonic watchexec
-make pdf     # -> build/AayushSarva.pdf
+make pdf     # build resume/AayushSarva.pdf
+make check   # build and fail unless it is exactly one page
 make open    # build and open
 make watch   # rebuild on save
 make serve   # preview the site at http://localhost:8000

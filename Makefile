@@ -1,12 +1,15 @@
-SRC   := resume/AayushSarva.tex
-BUILD := build
-PDF   := $(BUILD)/AayushSarva.pdf
+TEX := resume/AayushSarva.tex
+PDF := resume/AayushSarva.pdf
 
-.PHONY: pdf watch open serve clean setup
+.PHONY: pdf check watch open serve setup
 
-pdf: ## Build the resume into build/ (CI publishes Resume_AayushSarva.pdf)
-	mkdir -p $(BUILD)
-	tectonic -X compile $(SRC) --outdir $(BUILD)
+pdf: ## Build resume/AayushSarva.pdf
+	tectonic -X compile $(TEX) --outdir resume
+
+check: pdf ## Build and fail unless the resume is exactly one page
+	@pages=$$(pdfinfo $(PDF) | awk '/^Pages:/ {print $$2}'); \
+	if [ "$$pages" != "1" ]; then echo "error: $(PDF) has $$pages pages, expected 1" >&2; exit 1; fi; \
+	echo "$(PDF): 1 page"
 
 watch: ## Rebuild on save (needs watchexec)
 	watchexec -w resume -e tex,cls -- $(MAKE) pdf
@@ -17,8 +20,6 @@ open: pdf ## Build and open the PDF
 serve: ## Preview the site at http://localhost:8000
 	python3 -m http.server 8000
 
-clean:
-	rm -rf $(BUILD)
-
-setup: ## Install the TeX engine and file watcher
-	brew install tectonic watchexec
+setup: ## Install tools and enable the pre-commit hook
+	brew install tectonic watchexec poppler
+	git config core.hooksPath .githooks

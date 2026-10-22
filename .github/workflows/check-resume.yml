@@ -1,0 +1,40 @@
+name: Check resume
+
+on:
+  push:
+    paths: ['resume/AayushSarva.tex', 'resume/AayushSarva.pdf']
+  pull_request:
+    paths: ['resume/AayushSarva.tex', 'resume/AayushSarva.pdf']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wtfjoke/setup-tectonic@v3
+      - run: sudo apt-get install -y -qq poppler-utils
+
+      - name: Committed PDF is one page
+        run: |
+          pages=$(pdfinfo resume/AayushSarva.pdf | awk '/^Pages:/ {print $2}')
+          echo "Committed PDF: $pages page(s)"
+          test "$pages" = 1
+
+      - name: Source builds to one page
+        run: make check
+
+      - name: PDF was rebuilt alongside the source
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -z "$BASE" ] || [ "$BASE" = 0000000000000000000000000000000000000000 ]; then
+            echo "No base commit to compare against; skipping"
+            exit 0
+          fi
+          changed=$(git diff --name-only "$BASE" HEAD)
+          if echo "$changed" | grep -qx resume/AayushSarva.tex && ! echo "$changed" | grep -qx resume/AayushSarva.pdf; then
+            echo "::error::resume/AayushSarva.tex changed but resume/AayushSarva.pdf did not. Run 'make setup' to enable the pre-commit hook, then rebuild."
+            exit 1
+          fi

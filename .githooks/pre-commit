@@ -1,0 +1,21 @@
+#!/bin/sh
+# Rebuild and stage the resume PDF whenever its source is committed, so the
+# committed PDF always matches the committed .tex and is a valid one-page build.
+set -e
+
+TEX=resume/AayushSarva.tex
+PDF=resume/AayushSarva.pdf
+
+git diff --cached --quiet -- "$TEX" && exit 0
+
+if ! git diff --quiet -- "$TEX"; then
+  echo "pre-commit: $TEX has unstaged changes; stage or stash them so the PDF matches what you commit" >&2
+  exit 1
+fi
+
+if ! make -s check; then
+  echo "pre-commit: resume build failed; commit aborted" >&2
+  exit 1
+fi
+
+git add "$PDF"

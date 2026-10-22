@@ -4,5 +4,4 @@ exclude:
   - resume/archives/
   - Makefile
   - README.md
-  - AGENTS.md
   - CLAUDE.md

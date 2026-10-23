@@ -39,14 +39,18 @@
 % heading settings below; the content itself uses no \vspace. Adjacent
 % gaps don't add up: the larger one wins.
 \newlength{\namegap}    \setlength{\namegap}{4.5pt}  % below the name
-\newlength{\linegap}    \setlength{\linegap}{2pt}    % between bullets, and between lines in a list
-\newlength{\entrygap}   \setlength{\entrygap}{5pt}   % after each role's bullets
-\newlength{\sectiongap} \setlength{\sectiongap}{10pt} % before each section heading
+\newlength{\linegap}    \setlength{\linegap}{3pt}    % between bullets, and between lines in a list
+\newlength{\entrygap}   \setlength{\entrygap}{7pt}   % after each role's bullets
+\newlength{\sectiongap} \setlength{\sectiongap}{12pt} % before each section heading
+\newlength{\textlead}   \setlength{\textlead}{12.5pt} % baseline to baseline within body text (\small)
 \newlength{\rulegap}    \setlength{\rulegap}{0pt}    % extra space between a section's rule and its first line
 
 % Keep every baseline exactly \baselineskip apart, so underlined links or
 % tall symbols can't push the next line down
 \setlength{\lineskiplimit}{-\maxdimen}
+% Body text is \small; give it \textlead between lines
+\let\origsmall\small
+\renewcommand\small{\origsmall\setlength{\baselineskip}{\textlead}}
 
 % Sections: small caps title over a full-width rule
 \titleformat{\section}{\scshape\raggedright\large}{}{0em}{}[\titlerule\prevdepth=0pt]

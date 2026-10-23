@@ -6,7 +6,7 @@ My personal website, [aayushsarva.com](https://aayushsarva.com), and the LaTeX s
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | The website (single page), served by GitHub Pages from `master` |
+| `index.html` | The website (single page), served by GitHub Pages from `main` |
 | `assets/` | Stylesheet, portrait and favicon |
 | `resume/Resume_AayushSarva.tex` | Resume source (Jake's Resume template, single file) |
 | `resume/Resume_AayushSarva.pdf` | Built resume, committed; the site links here |

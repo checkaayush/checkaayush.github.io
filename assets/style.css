@@ -105,6 +105,7 @@ img { max-width: 100%; }
 .intro { margin: 0; color: var(--ink-2); max-width: 62ch; }
 .intro a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; }
 .intro a:hover { text-decoration-color: var(--accent); }
+.intro a svg { width: 0.7em; height: 0.7em; margin-left: 0.15em; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 
 .portrait { margin: 0; }
 .portrait img {
